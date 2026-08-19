@@ -107,8 +107,8 @@ async function photonSearch(
 
 export async function searchPlacesImpl(input: {
   query: string;
-  lat?: number;
-  lon?: number;
+  lat?: number | undefined;
+  lon?: number | undefined;
 }): Promise<PlaceSuggestion[]> {
   const query = input.query.trim();
   if (query.length < 3) return [];
