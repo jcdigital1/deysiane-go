@@ -173,7 +173,7 @@ function Index() {
 
       <h2 className="text-center text-2xl font-bold">Pra onde vamos?</h2>
 
-      <div className="space-y-3">
+      <div className="relative z-50 space-y-3">
         <PlaceField
           label="Local de partida"
           icon={<MapPin className="h-4 w-4 text-primary" />}
@@ -190,7 +190,7 @@ function Index() {
         />
       </div>
 
-      <div className="h-52 overflow-hidden rounded-2xl border border-border">
+      <div className="relative z-0 h-52 overflow-hidden rounded-2xl border border-border">
         <ClientOnly fallback={<div className="h-full w-full bg-surface" />}>
           <Suspense fallback={<div className="h-full w-full bg-surface" />}>
             <RideMap
