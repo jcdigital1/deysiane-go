@@ -102,7 +102,7 @@ function PlaceField({
       </div>
 
       {open && items.length > 0 && (
-        <ul className="absolute left-0 right-0 top-full z-40 mt-2 max-h-72 overflow-auto rounded-2xl border border-border bg-card shadow-xl">
+        <ul className="absolute left-0 right-0 top-full z-[1000] mt-2 max-h-72 overflow-auto rounded-2xl border border-border bg-card shadow-xl">
           {items.map((item) => (
             <li key={item.id}>
               <button
