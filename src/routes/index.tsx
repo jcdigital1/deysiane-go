@@ -34,8 +34,9 @@ async function geocode(query: string): Promise<Point> {
       `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`,
     );
     const data = (await res.json()) as Array<{ lat: string; lon: string }>;
-    if (!data.length) return null;
-    return { lat: Number(data[0].lat), lon: Number(data[0].lon) };
+    const first = data[0];
+    if (!first) return null;
+    return { lat: Number(first.lat), lon: Number(first.lon) };
   } catch {
     return null;
   }
