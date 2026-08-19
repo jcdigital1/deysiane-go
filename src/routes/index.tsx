@@ -155,7 +155,15 @@ function Index() {
     const text = `Olá, Deysiane! Desejo solicitar uma corrida. 🚗\n\n📍 Local de partida:\n${fmt(
       origin,
     )}\n\n🏁 Destino:\n${fmt(destination)}`;
-    window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`, "_blank");
+    // wa.link/ptzng7 não permite anexar texto dinâmico, então usamos o número
+    // oficial (55 34 99840-2888) com a mensagem codificada.
+    const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+    // Em PWA standalone, window.open pode retornar null (popup bloqueado).
+    // Nesse caso, navegamos diretamente — o SO abre o WhatsApp e volta ao app.
+    const win = window.open(url, "_blank");
+    if (!win) {
+      window.location.href = url;
+    }
   };
 
   return (
